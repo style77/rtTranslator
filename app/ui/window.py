@@ -22,13 +22,13 @@ class Window:
 
         self.main_text = tk.Label(
             text="",
-            font=("Helvetica", "16"),
+            font=("Helvetica", "22"),
             fg="#eee",
             bg="white",
         )
         self.sub_text = tk.Label(
             text="Waiting for recognizer",
-            font=("Helvetica", "10"),
+            font=("Helvetica", "14"),
             fg="#ddd",
             bg="white",
         )
