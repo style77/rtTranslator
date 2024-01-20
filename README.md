@@ -13,7 +13,13 @@ Simple overlay for Windows, that listens for background sound and translates it 
 4. Run `python -m app`
 
 For now it's only working on windows, but I'm planning to make it cross-platform.
-> YOU NEED A LOOPBACK DEVICE FOR THIS, I RECOMMEND [VB-CABLE](https://vb-audio.com/Cable/) WITH [VOICEMEETER](https://vb-audio.com/Voicemeeter/index.htm).
+> You need a loopback device to make it work. Check out [Loopback device setup](#loopback-device-setup) for more info.
+
+### Loopback device setup
+
+1. Install [VB-CABLE](https://vb-audio.com/Cable/) and [Voicemeeter](https://vb-audio.com/Voicemeeter/index.htm)
+2. Set your default playback device to `CABLE Input (VB-Audio Virtual Cable)` and default recording device to `VoiceMeeter Output` or `CABLE output`
+3. Run Voicemeeter and set your **Hardware input** device to `CABLE Output (VB-Audio Virtual Cable)`
 
 ## Usage
 
