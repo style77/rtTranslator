@@ -1,4 +1,5 @@
 import tkinter as tk
+from typing import Any
 
 
 class Window:
@@ -40,9 +41,9 @@ class Window:
         self.sub_text.pack(side="bottom", fill="both", pady=(0, 24))
         self.main_text.pack(side="bottom", fill="both")
 
-    def update_text(self, text: str, translated_text: str):
+    def update_text(self, text: str, translation_provider: Any):
         self.sub_text.configure(text=text)
-        self.main_text.configure(text=translated_text)
-
         self.sub_text.update()
+
+        self.main_text.configure(text=translation_provider(text))
         self.main_text.update()

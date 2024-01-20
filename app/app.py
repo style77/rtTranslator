@@ -13,7 +13,6 @@ from app.ui.window import Window
 
 class App:
     recognizer = sr.Recognizer()
-    recognizer.pause_threshold = 0.4
     provider = recognizer.recognize_google
     translation_provider = GoogleTranslator(source='auto', target=TARGET_LANGUAGE).translate
 
@@ -47,9 +46,7 @@ class App:
                 if not result:
                     continue
 
-                translated_result = self.translation_provider(result)
-
-                self.window.update_text(result, translated_result)
+                self.window.update_text(result, self.translation_provider)
 
                 print(f"Recognized: {result}")
             except sr.UnknownValueError:
