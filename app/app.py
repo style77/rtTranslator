@@ -43,7 +43,7 @@ class App:
                 break
 
             try:
-                result = self.provider(audio)
+                result = self.provider(audio, language=SOURCE_LANGUAGE)
                 if not result:
                     continue
 
