@@ -25,12 +25,16 @@ class Window:
             font=("Helvetica", "22"),
             fg="#eee",
             bg="white",
+            wraplength=width - 300,
+            justify="center",
         )
         self.sub_text = tk.Label(
             text="Waiting for recognizer",
             font=("Helvetica", "14"),
             fg="#ddd",
             bg="white",
+            wraplength=width - 300,
+            justify="center",
         )
 
         self.sub_text.pack(side="bottom", fill="both", pady=(0, 24))
