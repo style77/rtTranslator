@@ -13,7 +13,8 @@ from app.ui.window import Window
 
 class App:
     recognizer = sr.Recognizer()
-    provider = recognizer.recognize_whisper
+    recognizer.pause_threshold = 0.4
+    provider = recognizer.recognize_google
     translation_provider = GoogleTranslator(source='auto', target=TARGET_LANGUAGE).translate
 
     def __init__(self):
