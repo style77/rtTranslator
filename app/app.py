@@ -14,14 +14,16 @@ from ui.window import Window
 class App:
     recognizer = sr.Recognizer()
     provider = recognizer.recognize_google
-    translation_provider = GoogleTranslator(source='auto', target=TARGET_LANGUAGE).translate
+    translation_provider = GoogleTranslator(
+        source="auto", target=TARGET_LANGUAGE
+    ).translate
 
     def __init__(self):
         self.audio_queue = queue.Queue()
 
-        root = tk.Tk()
+        self.root = root = tk.Tk()
         self.window = Window(root)
-        self.start_app_thread(root)
+        self.start_app_thread()
 
     @staticmethod
     def get_device():
@@ -35,9 +37,7 @@ class App:
 
     def recognize_worker(self):
         while True:
-            audio = (
-                self.audio_queue.get()
-            )
+            audio = self.audio_queue.get()
             if audio is None:
                 break
 
@@ -70,9 +70,11 @@ class App:
             except KeyboardInterrupt:
                 pass
 
-    def start_app_thread(self, root: tk.Tk):
+    def start_app_thread(self):
         listening_thread = Thread(target=self.start_listening)
         listening_thread.daemon = True
         listening_thread.start()
 
-        root.mainloop()
+        self.window.setup_tray_icon()
+
+        self.root.mainloop()

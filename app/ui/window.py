@@ -1,5 +1,25 @@
+import os
 import tkinter as tk
 from typing import Any
+
+from infi.systray import SysTrayIcon
+
+
+class TrayIcon:
+    def __init__(self):
+        menu_options = ()
+
+        path_icon = r"assets\logo.ico"
+
+        default_stop_callback = lambda _: os._exit(0)  # noqa
+
+        systray = SysTrayIcon(
+            path_icon,
+            "rtTranslator",
+            menu_options,
+            on_quit=default_stop_callback,
+        )
+        systray.start()
 
 
 class Window:
@@ -47,3 +67,9 @@ class Window:
 
         self.main_text.configure(text=translation_provider(text))
         self.main_text.update()
+
+    def setup_tray_icon(self):
+        TrayIcon()
+
+    def close_window(self):
+        self.root.destroy()
