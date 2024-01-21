@@ -1,4 +1,5 @@
 import queue
+import os
 from threading import Thread
 import tkinter as tk
 from deep_translator import GoogleTranslator
@@ -12,7 +13,7 @@ from ui.window import Window
 
 
 class App:
-    config = Config("config.json")
+    config = Config(os.environ.get("CONFIG_PATH", "config.json"))
     recognizer = sr.Recognizer()
     provider = recognizer.recognize_google
     translation_provider = GoogleTranslator(
