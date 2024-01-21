@@ -9,7 +9,7 @@ class TrayIcon:
     def __init__(self):
         menu_options = ()
 
-        path_icon = r"assets\logo.ico"
+        path_icon = r"app\assets\logo.ico"
 
         default_stop_callback = lambda _: os._exit(0)  # noqa
 
