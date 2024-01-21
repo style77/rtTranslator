@@ -5,17 +5,18 @@ from deep_translator import GoogleTranslator
 import speech_recognition as sr
 
 import pyaudiowpatch as pyaudio
+from config import Config
 from audio.stream import Speakers
-from config import SOURCE_LANGUAGE, TARGET_LANGUAGE
 
 from ui.window import Window
 
 
 class App:
+    config = Config("config.json")
     recognizer = sr.Recognizer()
     provider = recognizer.recognize_google
     translation_provider = GoogleTranslator(
-        source="auto", target=TARGET_LANGUAGE
+        source="auto", target=config.target_language
     ).translate
 
     def __init__(self):
@@ -42,7 +43,7 @@ class App:
                 break
 
             try:
-                result = self.provider(audio, language=SOURCE_LANGUAGE)
+                result = self.provider(audio, language=self.config.source_language(self))
                 if not result:
                     continue
 
