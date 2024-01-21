@@ -1,0 +1,1 @@
+cxfreeze --base-name=Win32GUI --include-modules=_tkinter --include-modules=SpeechRecognition --include-modules=deep-translator --include-modules=app --target-dir=dist --target-name=rtTranslator app/__main__.py
