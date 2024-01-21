@@ -5,10 +5,10 @@ from deep_translator import GoogleTranslator
 import speech_recognition as sr
 
 import pyaudiowpatch as pyaudio
-from app.audio.stream import Speakers
-from app.config import SOURCE_LANGUAGE, TARGET_LANGUAGE
+from audio.stream import Speakers
+from config import SOURCE_LANGUAGE, TARGET_LANGUAGE
 
-from app.ui.window import Window
+from ui.window import Window
 
 
 class App:
