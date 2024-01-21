@@ -23,4 +23,8 @@ For now it's only working on windows, but I'm planning to make it cross-platform
 
 ## Usage
 
-Just run app and it will start listening for sound and translating it to text.
+### Build
+
+1. Install [cx_Freeze](https://pypi.org/project/cx-Freeze/)
+2. Run `build.sh` file
+3. You can find the compiled executable in `build` folder
